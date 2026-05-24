@@ -1,0 +1,13 @@
+/* VideoBrews — portfolio page overrides */
+.vb-header .vb-logo{display:inline-flex;align-items:center;padding:0;}
+.vb-logo__img{height:36px;width:auto;display:block;}
+.vb-portfolio-grid{align-items:start;}
+.vb-portfolio-item{aspect-ratio:auto;cursor:default;background:var(--vb-white);border:1px solid var(--vb-light-gray);box-shadow:var(--vb-shadow);}
+.vb-portfolio-item:hover{box-shadow:var(--vb-shadow-lg);}
+.vb-portfolio-video{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#000;}
+.vb-portfolio-caption{padding:14px 18px 16px;}
+.vb-portfolio-caption h4{font-size:1rem;margin:0 0 3px;color:var(--vb-navy);}
+.vb-portfolio-caption span{font-size:0.8rem;color:var(--vb-mid-gray);}
+.vb-hero__content h1{color:#000000;}
+.vb-hero__content .vb-tagline{color:#000000;}
+.vb-hero__content p{color:#000000;}

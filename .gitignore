@@ -1,0 +1,5 @@
+.DS_Store
+.backup-*/
+*.log
+node_modules/
+.netlify/

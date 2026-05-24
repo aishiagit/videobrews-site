@@ -1,0 +1,38 @@
+/* VideoBrews — index page overrides */
+.vb-header .vb-logo{display:inline-flex;align-items:center;padding:0;}
+.vb-logo__img{height:36px;width:auto;display:block;}
+/* Pain-point cards — gradient-header card style */
+.vb-pain-card{padding:0;overflow:hidden;border-top:none;border-radius:16px;background:#EEEBE1;box-shadow:0 6px 22px rgba(0,0,0,0.07);}
+.vb-pain-card__icon{width:100%;height:auto;min-height:150px;border-radius:0;margin:0;font-size:3.4rem;}
+.vb-pain-card h3{padding:26px 28px 0;margin-bottom:8px;}
+.vb-pain-card p{padding:0 28px 30px;margin-bottom:0;}
+.vb-pain-card:nth-child(1) .vb-pain-card__icon{background:linear-gradient(145deg,#FF8A4C 0%,#FFD79A 100%);}
+.vb-pain-card:nth-child(2) .vb-pain-card__icon{background:linear-gradient(145deg,#7FD9C0 0%,#B9C2E8 100%);}
+.vb-pain-card:nth-child(3) .vb-pain-card__icon{background:linear-gradient(145deg,#F5AA86 0%,#E68C7C 100%);}
+/* Testimonials carousel */
+.vb-carousel{max-width:760px;margin:0 auto;}
+.vb-carousel__stage{position:relative;}
+.vb-carousel__viewport{overflow:hidden;}
+.vb-carousel__track{display:flex;transition:transform 0.45s ease;}
+.vb-carousel__slide{min-width:100%;padding:6px;display:flex;}
+.vb-carousel__slide .vb-testimonial{width:100%;}
+.vb-carousel__arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:44px;height:44px;border-radius:50%;border:1px solid var(--vb-light-gray);background:var(--vb-white);color:var(--vb-navy);font-size:1.5rem;line-height:1;cursor:pointer;box-shadow:var(--vb-shadow);transition:var(--vb-transition);display:flex;align-items:center;justify-content:center;}
+.vb-carousel__arrow:hover{background:var(--vb-orange);color:var(--vb-white);border-color:var(--vb-orange);}
+.vb-carousel__arrow--prev{left:-20px;}
+.vb-carousel__arrow--next{right:-20px;}
+.vb-carousel__dots{display:flex;justify-content:center;gap:10px;margin-top:26px;}
+.vb-carousel__dot{width:9px;height:9px;border-radius:50%;border:none;padding:0;background:var(--vb-light-gray);cursor:pointer;transition:var(--vb-transition);}
+.vb-carousel__dot.active{background:var(--vb-orange);width:26px;border-radius:5px;}
+/* Testimonial card — image #6 beige style */
+.vb-testimonial{background:#ECE9DD;border-radius:16px;box-shadow:none;padding:40px;}
+.vb-testimonial__quote{border-left:none;padding-left:0;}
+/* Vertical cards — colour block on top, text below (image #8 style) */
+.vb-vertical-card{min-height:0;display:block;border-radius:0;overflow:visible;}
+.vb-vertical-card__bg{position:static;inset:auto;height:240px;border-radius:16px;}
+.vb-vertical-card:hover .vb-vertical-card__bg{transform:none;}
+.vb-vertical-card__overlay{display:none;}
+.vb-vertical-card__content{position:static;padding:20px 2px 0;}
+.vb-vertical-card__content h3{color:var(--vb-navy);}
+.vb-vertical-card__content p{color:var(--vb-mid-gray);}
+/* Hero — coral-to-cream overlay (matches CTA banner gradient) */
+.vb-hero__overlay{background:linear-gradient(180deg, #D98C6E 0%, #E7B287 50%, #F4E0B5 100%);}

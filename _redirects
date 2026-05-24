@@ -1,0 +1,16 @@
+# VideoBrews — Netlify redirects + clean URLs
+# Format: from   to   status
+
+# Clean URLs — strip .html so /restaurants serves /restaurants.html
+/restaurants        /restaurants.html        200
+/wellness           /wellness.html           200
+/wellness-clinics   /wellness.html           200
+/real-estate        /real-estate.html        200
+/portfolio          /portfolio.html          200
+/pricing            /pricing.html            200
+/kuala-lumpur       /kuala-lumpur.html       200
+/bangalore          /bangalore.html          200
+
+# Blog → existing Wix blog at blog.videobrews.com
+/blog               https://blog.videobrews.com   301
+/blog/*             https://blog.videobrews.com/:splat   301

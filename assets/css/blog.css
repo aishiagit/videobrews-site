@@ -1,0 +1,3 @@
+/* VideoBrews — blog page overrides */
+.vb-header .vb-logo{display:inline-flex;align-items:center;padding:0;}
+.vb-logo__img{height:36px;width:auto;display:block;}
