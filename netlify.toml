@@ -21,3 +21,16 @@
     X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Force /blog → blog subdomain even if a file with that name exists
+[[redirects]]
+  from = "/blog"
+  to = "https://blog.videobrews.com"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/*"
+  to = "https://blog.videobrews.com/:splat"
+  status = 301
+  force = true
