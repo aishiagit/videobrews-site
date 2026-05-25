@@ -4,9 +4,17 @@
 /* ===== Hero ===== */
 function Hero() {
   const [playing, setPlaying] = useState(false);
+  const videoRef = useRef(null);
   const y = useScrollY();
   const parY = Math.min(y * 0.15, 80);
   const book = useBook();
+
+  const playReel = (e) => {
+    if (e) e.preventDefault();
+    const v = videoRef.current;
+    if (!v) return;
+    v.play().catch(() => {/* user gesture required on some browsers */});
+  };
 
   const marqueeItems = [
     'Restaurants & F&B', 'Wellness & Clinics', 'Real Estate',
@@ -50,26 +58,37 @@ function Hero() {
                 <span className="dot"></span>
                 <span>Book a free consultation</span>
               </button>
-              <a href="portfolio.html" className="btn btn-ghost">
+              <button type="button" className="btn btn-ghost" onClick={playReel}>
                 <Icon.Play width="14" height="14" />
                 <span>Watch the showreel</span>
-              </a>
+              </button>
             </div>
           </div>
 
           <div className="hero-showreel reveal reveal-delay-3" style={{ transform: `translateY(${-parY * 0.3}px)` }}>
-            <img
-              className="reel-poster"
-              src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1400&q=80&auto=format&fit=crop"
-              alt="Showreel poster"
+            <video
+              ref={videoRef}
+              className="reel-video"
+              src="https://video.wixstatic.com/video/76e127_de31aa0c638e429680e97f4bf9e83e3c/1080p/mp4/file.mp4"
+              poster="https://static.wixstatic.com/media/76e127_de31aa0c638e429680e97f4bf9e83e3cf002.jpg"
+              playsInline
+              preload="metadata"
+              controls={playing}
+              onPlay={() => setPlaying(true)}
+              onPause={() => setPlaying(false)}
+              onEnded={() => setPlaying(false)}
             />
-            <a href="portfolio.html" className="play" aria-label="Open portfolio">
-              <Icon.Play />
-            </a>
-            <div className="reel-meta">
-              <span><span className="rec-dot"></span>Reel · 01</span>
-              <span>00:42</span>
-            </div>
+            {!playing && (
+              <button type="button" className="play" aria-label="Play intro video" onClick={playReel}>
+                <Icon.Play />
+              </button>
+            )}
+            {!playing && (
+              <div className="reel-meta">
+                <span><span className="rec-dot"></span>Reel · 01</span>
+                <span>01:29</span>
+              </div>
+            )}
           </div>
         </div>
 
