@@ -1,6 +1,8 @@
 /* VideoBrews — inline styles extracted to classes (generated, do not edit by hand) */
 .vb-s-0d75823b { color:#fff; }
+.vb-s-100f0d15 { justify-content:center;margin-top:32px; }
 .vb-s-13a17c36 { border:0;max-width:640px;display:block;margin:32px auto 0;background:#fff;border-radius:12px; }
+.vb-s-16fb3dcf { background:linear-gradient(180deg, #D98C6E 0%, #E7B287 50%, #F4E0B5 100%); }
 .vb-s-1affe945 { background-color:#3498DB; }
 .vb-s-21158ba4 { background:linear-gradient(135deg, #9B59B6 0%, #9B59B6dd 100%); }
 .vb-s-27125623 { width:100%;height:100%;background:var(--vb-light-gray);display:flex;align-items:center;justify-content:center;color:var(--vb-mid-gray);font-size:0.9rem; }
@@ -12,6 +14,7 @@
 .vb-s-3a4d3f80 { display:grid;grid-template-columns:1fr 300px;gap:48px; }
 .vb-s-40cbcda6 { background:radial-gradient(ellipse 80% 85% at 8% 90%,#84C89C 0%,rgba(132,200,156,0) 72%),radial-gradient(ellipse 75% 80% at 96% 96%,#C0B5E3 0%,rgba(192,181,227,0) 72%),linear-gradient(125deg,#F4E8B2 0%,#F2AD80 52%,#EB8B83 100%); }
 .vb-s-4555f858 { border-left-color:#27AE60; }
+.vb-s-4c0ebba5 { color:#000; }
 .vb-s-4da8235c { border-left-color:#0E8C8C; }
 .vb-s-5cc6a604 { background:var(--vb-orange);color:#fff;padding:24px;border-radius:12px; }
 .vb-s-5d8a190f { background-color:#27AE60; }

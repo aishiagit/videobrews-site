@@ -1,3 +1,25 @@
 /* VideoBrews — pricing page overrides */
 .vb-header .vb-logo{display:inline-flex;align-items:center;padding:0;}
 .vb-logo__img{height:36px;width:auto;display:block;}
+
+/* Quote form — organised responsive grid */
+.vb-form { max-width: 640px; margin: 32px auto 0; }
+.vb-quote-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.vb-form__input {
+  width: 100%; padding: 13px 16px; box-sizing: border-box;
+  border: 1px solid #dcdce1; border-radius: var(--vb-radius);
+  font-family: var(--vb-font-body); font-size: 1rem;
+  color: var(--vb-dark-text); background: var(--vb-white);
+  transition: var(--vb-transition);
+}
+.vb-form__input::placeholder { color: var(--vb-mid-gray); }
+.vb-form__input:focus {
+  outline: none; border-color: var(--vb-orange);
+  box-shadow: 0 0 0 3px rgba(230,126,34,0.18);
+}
+select.vb-form__input { cursor: pointer; }
+textarea.vb-form__input { resize: vertical; min-height: 120px; }
+.vb-form__input--full,
+.vb-quote-form .vb-form__submit { grid-column: 1 / -1; }
+.vb-quote-form .vb-form__submit { display: inline-flex; justify-content: center; }
+.vb-honeypot { position: absolute; left: -9999px; }

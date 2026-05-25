@@ -106,26 +106,31 @@
 <section class="vb-cta-banner vb-s-9663d5b2" id="contact"><div class="vb-container">
   <h2>Get Your Custom Quote</h2>
   <p>Book a free 30-minute consultation. We'll provide a custom video marketing plan with transparent pricing.</p>
-  <!--
-    ▼▼▼ WIX FORM EMBED — REPLACE THIS PLACEHOLDER ▼▼▼
-    1. In Wix Editor, open the "Get Your Custom Quote" form widget
-    2. Click the form → Settings → "Embed on external site" (or "Share" → "Embed")
-    3. Wix gives you an <iframe> code — copy it
-    4. Replace the <div class="vb-wix-form-embed"> block below with that iframe
-    5. Set the iframe's width to 100% and an appropriate height (~700px desktop)
-  -->
-  <div class="vb-wix-form-embed">
-    <iframe src="ABOUT:BLANK"
-            title="Get Your Custom Quote — VideoBrews"
-            width="100%" height="700"
-            class="vb-s-13a17c36"
-            loading="lazy">
-    </iframe>
-    <noscript>
-      <p class="vb-s-5eb9af5f">
-        Email us at <a href="mailto:support@domisoti.com" class="vb-s-0d75823b">support@domisoti.com</a>
-      </p>
-    </noscript>
+  <div class="vb-form">
+    <form name="consultation" class="vb-quote-form" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="consultation">
+      <p class="vb-honeypot"><label>Leave this empty: <input name="bot-field"></label></p>
+
+      <input type="text" name="name" placeholder="Your Name" class="vb-form__input" required>
+      <input type="email" name="email" placeholder="Email Address" class="vb-form__input" required>
+      <input type="text" name="business" placeholder="Business Name" class="vb-form__input">
+      <select name="industry" class="vb-form__input">
+        <option value="">Select Your Industry</option>
+        <option>Restaurant &amp; F&amp;B</option>
+        <option>Wellness &amp; Clinics</option>
+        <option>Real Estate</option>
+        <option>Other</option>
+      </select>
+      <select name="plan" class="vb-form__input vb-form__input--full">
+        <option value="">Interested Plan (Optional)</option>
+        <option>The Essential</option>
+        <option>The Growth</option>
+        <option>The Premium</option>
+        <option>Not Sure Yet</option>
+      </select>
+      <textarea name="message" placeholder="Tell us about your business and goals…" class="vb-form__input vb-form__input--full" rows="4"></textarea>
+      <button type="submit" class="vb-btn vb-btn--primary vb-btn--large vb-form__submit">Book My Free Consultation</button>
+    </form>
   </div>
 </div></section>
 
