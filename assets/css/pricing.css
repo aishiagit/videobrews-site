@@ -2,6 +2,9 @@
 .vb-header .vb-logo{display:inline-flex;align-items:center;padding:0;}
 .vb-logo__img{height:36px;width:auto;display:block;}
 
+/* CTA banner sits on an orange→navy gradient; force white text to override the theme's black default. */
+.vb-cta-banner p { color: #ffffff; }
+
 /* Quote form — organised responsive grid */
 .vb-form { max-width: 640px; margin: 32px auto 0; }
 .vb-quote-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
