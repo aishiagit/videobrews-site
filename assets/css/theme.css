@@ -292,18 +292,23 @@ p { margin-bottom: 1em; }
   position: relative; text-align: center; padding: 32px 16px;
   counter-increment: step;
 }
-.vb-process__step::before {
+/* Step number circle disabled when icon is present */
+.vb-process__step:not(:has(.vb-process__icon))::before {
   content: counter(step); display: flex; align-items: center; justify-content: center;
   width: 56px; height: 56px; border-radius: 50%;
   background: var(--vb-orange); color: var(--vb-white);
   font-family: var(--vb-font-heading); font-weight: 800; font-size: 1.3rem;
   margin: 0 auto 16px;
 }
+.vb-process__icon {
+  width: 96px; height: 96px; object-fit: contain;
+  display: block; margin: 0 auto 16px;
+}
 .vb-process__step h4 { font-size: 1rem; margin-bottom: 8px; }
 .vb-process__step p { font-size: 0.9rem; color: var(--vb-mid-gray); }
 /* Arrow connector */
 .vb-process__step:not(:last-child)::after {
-  content: ''; position: absolute; top: 52px; right: -12px;
+  content: ''; position: absolute; top: 70px; right: -12px;
   width: 24px; height: 2px; background: var(--vb-orange);
 }
 
