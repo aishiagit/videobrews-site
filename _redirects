@@ -12,5 +12,5 @@
 /bangalore          /bangalore.html          200
 
 # Blog → existing Wix blog at blog.videobrews.com
-/blog               https://blog.videobrews.com   301
-/blog/*             https://blog.videobrews.com/:splat   301
+/blog               https://www.videobrews.com/blog   301
+/blog/*             https://www.videobrews.com/blog/:splat   301

@@ -26,12 +26,12 @@
 # Force /blog → blog subdomain even if a file with that name exists
 [[redirects]]
   from = "/blog"
-  to = "https://blog.videobrews.com"
+  to = "https://www.videobrews.com/blog"
   status = 301
   force = true
 
 [[redirects]]
   from = "/blog/*"
-  to = "https://blog.videobrews.com/:splat"
+  to = "https://www.videobrews.com/blog/:splat"
   status = 301
   force = true
