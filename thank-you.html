@@ -1,106 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="assets/img/videobrews-icon.png">
-  <link rel="apple-touch-icon" href="assets/img/videobrews-icon.png">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Thanks — VideoBrews</title>
-  <meta name="robots" content="noindex">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/theme.css">
-  <link rel="stylesheet" href="assets/css/inline-extracted.css">
-  <script src="assets/js/site.js" defer></script>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/svg+xml" href="assets/videobrews-icon-dark.svg" />
+  <link rel="apple-touch-icon" href="assets/videobrews-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=DM+Serif+Display:ital@1&display=swap" rel="stylesheet" />
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{background:#FAF6F1;color:#15110D;font-family:'Geist',system-ui,sans-serif;min-height:100vh}
+    body{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px 24px;text-align:center}
+    .mark{width:84px;height:84px;margin-bottom:32px;filter:drop-shadow(0 6px 18px rgba(255,89,0,.2))}
+    h1{font-size:clamp(2.5rem,6vw,4rem);font-weight:700;letter-spacing:-.02em;line-height:1.05;margin-bottom:20px}
+    .serif-it{font-family:'DM Serif Display',serif;font-style:italic;color:#FF5900;font-weight:400}
+    .lead{font-size:1.15rem;color:#5e564e;max-width:560px;margin:0 auto 36px;line-height:1.6}
+    .meta{font-family:'Geist Mono',ui-monospace,monospace;font-size:0.8rem;letter-spacing:.08em;text-transform:uppercase;color:#8a7f73;margin-bottom:8px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;font-weight:600;font-size:0.95rem;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+    .btn-primary{background:#15110D;color:#FAF6F1;border:1px solid #15110D}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(21,17,13,.18)}
+    .btn-ghost{background:transparent;color:#15110D;border:1px solid rgba(21,17,13,.2)}
+    .btn-ghost:hover{background:rgba(21,17,13,.06)}
+  </style>
 </head>
 <body>
-
-<header class="vb-header">
-  <div class="vb-header__inner">
-    <a href="index.html" class="vb-logo"><img class="vb-logo__img" src="https://static.wixstatic.com/media/76e127_e65baaead90f417abdc2c5485e6514cb~mv2.png" alt="VideoBrews"></a>
-    <button class="vb-menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
-    <nav class="vb-nav">
-      <div class="vb-nav__dropdown">
-        <a href="#">Verticals &#9662;</a>
-        <div class="vb-nav__dropdown-menu">
-          <a href="restaurants.html">Restaurants &amp; F&amp;B</a>
-          <a href="wellness.html">Wellness &amp; Clinics</a>
-          <a href="real-estate.html">Real Estate</a>
-        </div>
-      </div>
-      <div class="vb-nav__dropdown">
-        <a href="#">Cities &#9662;</a>
-        <div class="vb-nav__dropdown-menu">
-          <a href="kuala-lumpur.html">Kuala Lumpur</a>
-          <a href="bangalore.html">Bangalore</a>
-        </div>
-      </div>
-      <a href="pricing.html">Pricing</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="https://www.videobrews.com/blog">Blog</a>
-    </nav>
+  <svg class="mark" viewBox="0 0 26 26">
+    <g fill="none" stroke="#0A0A0A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m2.681 14.82 3.363 3.07"/>
+      <path d="m1 16.201 9.325 8.599c.255.204.917.43 1.529-.307l4.127-4.453"/>
+      <path d="M25 10.98 14.605 1.2c-.255-.204-.917-.43-1.529.307L10.983 3.61"/>
+      <path d="m5.546 8.335-.658-.728c-.344-.594-.058-.92.371-1.408l2.012-2.127c.19-.217.7-.567 1.21-.23l.974.862"/>
+    </g>
+    <circle cx="13" cy="13" r="6.2" fill="#FF5900"/>
+    <path fill="#FFFFFF" d="M11.2 9.6 17 13l-5.8 3.4z"/>
+  </svg>
+  <p class="meta">● Request received</p>
+  <h1>Thanks — we got<br/>your <span class="serif-it">request.</span></h1>
+  <p class="lead">A member of our team is reviewing your details and will reach out at the email you provided within 1 business day with next steps for your free consultation.</p>
+  <div class="actions">
+    <a href="index.html" class="btn btn-primary">Back to home</a>
+    <a href="portfolio.html" class="btn btn-ghost">See our work</a>
   </div>
-</header>
-
-<section class="vb-hero vb-hero--compact vb-s-16fb3dcf">
-  <div class="vb-hero__content">
-    <h1>Thanks — we got your request!</h1>
-    <p class="vb-tagline vb-s-4c0ebba5">We'll be in touch within 1 business day.</p>
-    <p class="vb-s-4c0ebba5">A member of our team is reviewing your details and will reach out at the email you provided with next steps for your free consultation.</p>
-    <div class="vb-hero__ctas vb-s-100f0d15">
-      <a href="index.html" class="vb-btn vb-btn--primary vb-btn--large">Back to home</a>
-      <a href="portfolio.html" class="vb-btn vb-btn--ghost vb-btn--large">See our work</a>
-    </div>
-  </div>
-</section>
-
-<footer class="vb-footer">
-  <div class="vb-container">
-    <div class="vb-footer__grid">
-      <div class="vb-footer__about">
-        <a href="index.html" class="vb-logo vb-s-ae018e45"><img class="vb-logo__img" src="https://static.wixstatic.com/media/76e127_e65baaead90f417abdc2c5485e6514cb~mv2.png" alt="VideoBrews"></a>
-        <p>AI-powered video marketing agency purpose-built for restaurants, wellness clinics, and real estate. Agency quality video at an AI price.</p>
-        <p class="vb-s-d8a95513">No.17-3, 2nd Floor, Jalan SP 2/1, Taman Serdang Perdana, Seksyen 2, 43300 Seri Kembangan, Selangor, Malaysia</p>
-      </div>
-      <div>
-        <h4>Verticals</h4>
-        <ul class="vb-footer__links">
-          <li><a href="restaurants.html">Restaurants &amp; F&amp;B</a></li>
-          <li><a href="wellness.html">Wellness &amp; Clinics</a></li>
-          <li><a href="real-estate.html">Real Estate</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Resources</h4>
-        <ul class="vb-footer__links">
-          <li><a href="https://www.videobrews.com/blog">Blog</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Cities</h4>
-        <ul class="vb-footer__links">
-          <li><a href="kuala-lumpur.html">Kuala Lumpur</a></li>
-          <li><a href="bangalore.html">Bangalore</a></li>
-        </ul>
-        <h4 class="vb-s-3343fd64">Contact</h4>
-        <ul class="vb-footer__links">
-          <li><a href="mailto:support@domisoti.com">support@domisoti.com</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="vb-footer__bottom">
-      <span>&copy; 2026 Domisoti Sdn Bhd. All rights reserved.</span>
-      <div class="vb-footer__social">
-        <a href="https://www.facebook.com/profile.php?id=61581959106882" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-8.6h2.9l.4-3.4h-3.3V7.8c0-1 .3-1.7 1.7-1.7h1.8V3.1A23 23 0 0 0 14.3 3c-2.7 0-4.5 1.6-4.5 4.6V10H7v3.4h2.8V22h3.7z"/></svg></a>
-        <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 5.9a8 8 0 0 1-2.4.7 4.2 4.2 0 0 0 1.8-2.3 8.3 8.3 0 0 1-2.6 1 4.1 4.1 0 0 0-7 3.8A11.7 11.7 0 0 1 3.2 4.6a4.1 4.1 0 0 0 1.3 5.5 4.1 4.1 0 0 1-1.9-.5v.1c0 2 1.4 3.7 3.3 4a4.2 4.2 0 0 1-1.9.1 4.1 4.1 0 0 0 3.9 2.9A8.3 8.3 0 0 1 2 18.3a11.7 11.7 0 0 0 6.3 1.9c7.6 0 11.7-6.3 11.7-11.7v-.5A8.4 8.4 0 0 0 22 5.9z"/></svg></a>
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-      </div>
-    </div>
-  </div>
-</footer>
-
 </body>
 </html>

@@ -1,9 +1,0 @@
-/* VideoBrews — real-estate page overrides */
-.vb-header .vb-logo{display:inline-flex;align-items:center;padding:0;}
-.vb-logo__img{height:36px;width:auto;display:block;}
-/* Hero — bright gradient banner, dark text */
-.vb-hero__content h1{color:var(--vb-navy);}
-.vb-hero__content .vb-tagline{color:var(--vb-navy);}
-.vb-hero__content p{color:rgba(26,26,46,0.8);}
-.vb-hero .vb-btn--ghost{color:var(--vb-navy);border-color:var(--vb-navy);}
-.vb-hero .vb-btn--ghost:hover{background:var(--vb-navy);color:var(--vb-white);}
