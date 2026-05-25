@@ -3,11 +3,12 @@
 [build]
   publish = "."
 
-# Headers — long cache on static assets, no cache on HTML (so updates show immediately)
+# Headers — moderate cache on static assets (browsers re-check after 10 min)
+# We don't use content hashing in filenames, so we can't safely mark assets immutable.
 [[headers]]
   for = "/assets/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=600, must-revalidate"
 
 [[headers]]
   for = "/*.html"
