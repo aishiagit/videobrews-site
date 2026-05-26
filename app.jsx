@@ -129,6 +129,41 @@ function Pain() {
       body: 'Compelling video calls for strategy, taste, and craft. Without all three, even great products get buried next to generic stock posts.'
     }
   ];
+
+  // Mobile-only swipe carousel: track which card is most-visible inside
+  // the horizontal scroller so the dot indicator stays in sync.
+  const scrollerRef = useRef(null);
+  const cellRefs = useRef([]);
+  const [activeIdx, setActiveIdx] = useState(0);
+
+  useEffect(() => {
+    const scroller = scrollerRef.current;
+    if (!scroller) return;
+    // Only attach observer when the scroller is actually a horizontal track
+    // (i.e. on mobile). The CSS hides overflow on desktop, so this is a
+    // cheap sentinel — desktop has no x-overflow so observer ratios always
+    // stay at 1 and the dots are hidden by CSS anyway.
+    const io = new IntersectionObserver(
+      (entries) => {
+        let best = { ratio: 0, idx: 0 };
+        for (const e of entries) {
+          if (e.intersectionRatio > best.ratio) {
+            best = { ratio: e.intersectionRatio, idx: Number(e.target.dataset.idx) };
+          }
+        }
+        if (best.ratio > 0) setActiveIdx(best.idx);
+      },
+      { root: scroller, threshold: [0.5, 0.75, 1] }
+    );
+    cellRefs.current.forEach((el) => el && io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
+  const goTo = (idx) => {
+    const cell = cellRefs.current[idx];
+    if (cell) cell.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  };
+
   return (
     <section className="section pain" id="pain">
       <div className="container">
@@ -138,9 +173,14 @@ function Pain() {
           <p className="lede">Every owner we meet has the same three problems. The good news — they're solvable.</p>
         </div>
 
-        <div className="pain-grid reveal reveal-delay-1">
-          {items.map((it) => (
-            <div className="pain-cell" key={it.n}>
+        <div className="pain-grid reveal reveal-delay-1" ref={scrollerRef}>
+          {items.map((it, i) => (
+            <div
+              className="pain-cell"
+              key={it.n}
+              data-idx={i}
+              ref={(el) => { cellRefs.current[i] = el; }}
+            >
               <div className="pain-glyph">{it.glyph}</div>
               <div className="pain-num">{it.n}</div>
               <h3>
@@ -149,6 +189,20 @@ function Pain() {
               </h3>
               <p>{it.body}</p>
             </div>
+          ))}
+        </div>
+
+        <div className="pain-dots" role="tablist" aria-label="Pain points">
+          {items.map((it, i) => (
+            <button
+              key={it.n}
+              type="button"
+              role="tab"
+              aria-label={`Go to card ${i + 1} of ${items.length}`}
+              aria-selected={activeIdx === i}
+              className={`pain-dot ${activeIdx === i ? 'on' : ''}`}
+              onClick={() => goTo(i)}
+            />
           ))}
         </div>
       </div>

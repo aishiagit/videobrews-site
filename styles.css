@@ -475,6 +475,79 @@ p { margin: 0; }
   overflow: hidden;
 }
 @media (max-width: 820px) { .pain-grid { grid-template-columns: 1fr; } }
+
+/* Dots are mobile-only — hidden by default, revealed in the mobile block */
+.pain-dots { display: none; }
+
+/* ---- Mobile swipe carousel (<=720px) ---- */
+@media (max-width: 720px) {
+  /* Break out of the container horizontally so cards can peek to the edge.
+     Negative margin = container --pad; padding inside the scroller adds
+     back a smaller gutter so card 1 sits ~5% from the edge and card 2's
+     left edge peeks. */
+  .pain-grid {
+    display: flex;
+    grid-template-columns: none;
+    gap: 14px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;            /* Firefox */
+    -ms-overflow-style: none;          /* IE/Edge legacy */
+    -webkit-overflow-scrolling: touch;
+    margin-left: calc(var(--pad) * -1);
+    margin-right: calc(var(--pad) * -1);
+    padding: 4px var(--pad) 8px;
+    scroll-padding-inline: var(--pad);
+  }
+  .pain-grid::-webkit-scrollbar { display: none; }
+
+  .pain-cell {
+    /* Viewport-based width gives predictable peek regardless of the
+       section + container padding chain. ~22vw of breathing room on each
+       side telegraphs the next card. */
+    flex: 0 0 78vw;
+    max-width: 340px;
+    scroll-snap-align: center;
+    /* Cards now stand on their own — restore their visual containment */
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    background: var(--bg);
+    min-height: 280px;
+    padding: 32px 26px;
+    /* Disable the desktop hover bg swap; on touch it sticks awkwardly */
+    transition: none;
+  }
+  .pain-cell:hover { background: var(--bg); }
+
+  .pain-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+  }
+  .pain-dot {
+    width: 8px; height: 8px;
+    border: none; padding: 0;
+    border-radius: 999px;
+    background: var(--line-2);
+    cursor: pointer;
+    transition: width .25s cubic-bezier(.2,.7,.2,1), background .25s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .pain-dot.on {
+    width: 24px;
+    background: var(--accent-hot);
+  }
+  .pain-dot:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+}
 .pain-cell {
   background: var(--bg);
   padding: 44px 36px;
