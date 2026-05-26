@@ -507,10 +507,10 @@ p { margin: 0; }
 
   .pain-cell {
     /* Viewport-based width gives predictable peek regardless of the
-       section + container padding chain. ~22vw of breathing room on each
-       side telegraphs the next card. */
-    flex: 0 0 78vw;
-    max-width: 340px;
+       section + container padding chain. Narrower card = wider peek;
+       ~30vw of breathing room makes the next card clearly visible. */
+    flex: 0 0 70vw;
+    max-width: 300px;
     scroll-snap-align: center;
     /* Cards now stand on their own — restore their visual containment */
     border: 1px solid var(--line);
