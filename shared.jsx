@@ -409,6 +409,7 @@ function Nav() {
   const y = useScrollY();
   const scrolled = y > 24;
   const book = useBook();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // Detect current page so internal anchors work on the homepage
   const isHome = (() => {
@@ -420,6 +421,20 @@ function Nav() {
   // Scrollspy — track which section is in view
   const sections = ['services', 'verticals', 'portfolio', 'pricing'];
   const [active, setActive] = useState('');
+
+  // Lock scroll + Escape closes the mobile drawer
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e) => { if (e.key === 'Escape') setMenuOpen(false); };
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [menuOpen]);
+
+  const closeMenu = () => setMenuOpen(false);
 
   useEffect(() => {
     if (!isHome) {
@@ -448,24 +463,34 @@ function Nav() {
   const isActive = (id) => active === id;
 
   return (
-    <header className={`nav ${scrolled ? 'scrolled' : ''}`}>
-      <a href="index.html" className="brand">
+    <header className={`nav ${scrolled ? 'scrolled' : ''} ${menuOpen ? 'menu-open' : ''}`}>
+      <a href="index.html" className="brand" onClick={closeMenu}>
         <img src="assets/videobrews-icon-dark.svg" alt="" className="brand-mark" />
         <span className="brand-word">
           <span className="b-video">Video</span><span className="b-brews">Brews</span>
         </span>
       </a>
-      <nav className="nav-links">
-        <a href={h('services')} className={isActive('services') ? 'on' : ''}>Services</a>
-        <a href={h('verticals')} className={isActive('verticals') ? 'on' : ''}>Verticals</a>
-        <a href={h('portfolio')} className={isActive('portfolio') ? 'on' : ''}>Portfolio</a>
-        <a href={h('pricing')} className={isActive('pricing') ? 'on' : ''}>Pricing</a>
-        <a href="https://www.videobrews.com/blog">Blog</a>
+      <nav className="nav-links" id="primary-nav" aria-label="Primary">
+        <a href={h('services')} className={isActive('services') ? 'on' : ''} onClick={closeMenu}>Services</a>
+        <a href={h('verticals')} className={isActive('verticals') ? 'on' : ''} onClick={closeMenu}>Verticals</a>
+        <a href={h('portfolio')} className={isActive('portfolio') ? 'on' : ''} onClick={closeMenu}>Portfolio</a>
+        <a href={h('pricing')} className={isActive('pricing') ? 'on' : ''} onClick={closeMenu}>Pricing</a>
+        <a href="https://www.videobrews.com/blog" onClick={closeMenu}>Blog</a>
       </nav>
       <div className="nav-cta">
-        <button type="button" className="btn btn-primary" onClick={book}>
+        <button type="button" className="btn btn-primary" onClick={() => { closeMenu(); book(); }}>
           <span className="dot"></span>
           <span>Book a call</span>
+        </button>
+        <button
+          type="button"
+          className="nav-toggle"
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+          aria-controls="primary-nav"
+          onClick={() => setMenuOpen((v) => !v)}
+        >
+          <span></span><span></span><span></span>
         </button>
       </div>
     </header>

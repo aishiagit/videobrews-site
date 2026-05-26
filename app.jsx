@@ -33,7 +33,7 @@ function Hero() {
             <span>● Now booking June 2026</span>
             <span style={{color:'var(--ink-3)'}}>Kuala Lumpur · Bangalore</span>
           </div>
-          <div className="hero-meta" style={{textAlign:'right'}}>
+          <div className="hero-meta hero-meta--end">
             <span>Agency Quality Video — AI Price</span>
             <span style={{color:'var(--ink-3)'}}>VideoBrews / 2026</span>
           </div>
