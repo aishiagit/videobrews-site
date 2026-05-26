@@ -187,8 +187,17 @@ function ConsultModal({ open, onClose }) {
                 <input type="hidden" name="form-name" value="consultation" />
                 <p style={{position:'absolute',left:'-9999px'}}><label>Don't fill this: <input name="bot-field" /></label></p>
                 <div className="cf-head">
+                  {/* Mobile-only: the aside is hidden on small screens so users
+                      land directly on the form. Re-surface the context + trust
+                      signals here, compact, so nothing is lost. */}
+                  <span className="eyebrow cf-eyebrow-mobile">Book a Free Consultation</span>
                   <h4>Tell us about your business.</h4>
                   <p>We'll come back with a custom plan and transparent pricing.</p>
+                  <ul className="cf-trust-mobile" aria-label="What you'll get">
+                    <li><Icon.Check width="14" height="14" />Free 30-min call</li>
+                    <li><Icon.Check width="14" height="14" />Custom plan</li>
+                    <li><Icon.Check width="14" height="14" />Zero commitment</li>
+                  </ul>
                 </div>
 
                 <div className="cf-grid">
