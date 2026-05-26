@@ -37,14 +37,17 @@ function FilterBar({ active, setActive, counts }) {
       <div className="container">
         <div className="filter-track">
           {FILTERS.map((f) => {
-            const c = f.key === 'all' ? ITEMS.length : (counts[f.key] || 0);
+            const c = counts[f.key] || 0;
             const on = active === f.key;
+            const empty = c === 0;
             return (
               <button
                 key={f.key}
                 type="button"
                 onClick={() => setActive(f.key)}
-                className={`filter-chip ${on ? 'on' : ''}`}
+                disabled={empty && f.key !== 'all'}
+                className={`filter-chip ${on ? 'on' : ''} ${empty ? 'is-empty' : ''}`}
+                title={empty ? 'Coming soon' : `${c} ${c === 1 ? 'video' : 'videos'}`}
               >
                 <span>{f.label}</span>
                 <span className="filter-count">{c}</span>
@@ -124,15 +127,19 @@ function PortfolioGrid() {
   const [active, setActive] = useState('all');
   const [openIdx, setOpenIdx] = useState(null);
 
-  const counts = ITEMS.reduce((acc, it) => {
-    acc[it.vertical] = (acc[it.vertical] || 0) + 1;
-    acc[it.format] = (acc[it.format] || 0) + 1;
+  // Counts and `filtered` share the same predicate so the chip badge always
+  // equals the number of cards rendered below it.
+  const activeFilter = FILTERS.find((f) => f.key === active) || FILTERS[0];
+  const filtered = ITEMS.filter(activeFilter.match);
+
+  const counts = FILTERS.reduce((acc, f) => {
+    acc[f.key] = ITEMS.filter(f.match).length;
     return acc;
   }, {});
 
-  const filtered = active === 'all'
-    ? ITEMS
-    : ITEMS.filter((it) => it.vertical === active || it.format === active || it.format.includes(active));
+  // If the user changes filter while the lightbox is open, close it so we
+  // don't end up pointing at a stale index in a shorter array.
+  useEffect(() => { setOpenIdx(null); }, [active]);
 
   return (
     <>

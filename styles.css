@@ -1151,6 +1151,11 @@ p { margin: 0; }
   background: rgba(255,255,255,0.12);
   color: rgba(255,255,255,0.78);
 }
+.filter-chip.is-empty {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.filter-chip.is-empty:hover { border-color: var(--line-2); color: var(--ink-2); }
 
 /* Result meta */
 .port-section {

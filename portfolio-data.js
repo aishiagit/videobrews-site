@@ -130,13 +130,14 @@ window.PORTFOLIO_ITEMS = [
   }
 ];
 
-/* Filter taxonomy (key matches `vertical` or `format`) */
+/* Filter taxonomy. Each filter owns a `match(item)` predicate so the chip
+   count and the actual filtered result are guaranteed to agree. */
 window.PORTFOLIO_FILTERS = [
-  { key: 'all',         label: 'All Work',          count: () => window.PORTFOLIO_ITEMS.length },
-  { key: 'Restaurants', label: 'Restaurants & F&B' },
-  { key: 'Wellness',    label: 'Wellness & Clinics' },
-  { key: 'Real Estate', label: 'Real Estate' },
-  { key: 'Brand',       label: 'Brand Stories' },
-  { key: 'Music Videos',label: 'Music Videos' },
-  { key: 'AI Short Films', label: 'AI Short Films' }
+  { key: 'all',            label: 'All Work',           match: () => true },
+  { key: 'Restaurants',    label: 'Restaurants & F&B',  match: (it) => it.vertical === 'Restaurants' },
+  { key: 'Wellness',       label: 'Wellness & Clinics', match: (it) => it.vertical === 'Wellness' },
+  { key: 'Real Estate',    label: 'Real Estate',        match: (it) => it.vertical === 'Real Estate' },
+  { key: 'Brand',          label: 'Brand Stories',      match: (it) => it.vertical === 'Brand' || it.format === 'Brand Story' },
+  { key: 'Music Videos',   label: 'Music Videos',       match: (it) => it.vertical === 'Music Videos' || it.format === 'Music Video' },
+  { key: 'AI Short Films', label: 'AI Short Films',     match: (it) => it.vertical === 'AI Short Films' || it.format === 'AI Short Film' }
 ];
